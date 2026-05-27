@@ -1,0 +1,58 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeScale {
+	from {
+		opacity: 0;
+		transform: scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.service-card, .certificate-card, .review-card {
+	animation: fadeInUp 0.6s ease forwards;
+	animation-fill-mode: both;
+}
+
+.service-card:nth-child(1) { animation-delay: 0s; }
+.service-card:nth-child(2) { animation-delay: 0.1s; }
+.service-card:nth-child(3) { animation-delay: 0.2s; }
+
+.certificate-card:nth-child(1) { animation-delay: 0s; }
+.certificate-card:nth-child(2) { animation-delay: 0.05s; }
+.certificate-card:nth-child(3) { animation-delay: 0.1s; }
+.certificate-card:nth-child(4) { animation-delay: 0.15s; }
+.certificate-card:nth-child(5) { animation-delay: 0.2s; }
+.certificate-card:nth-child(6) { animation-delay: 0.25s; }
+
+.review-card:nth-child(1) { animation-delay: 0s; }
+.review-card:nth-child(2) { animation-delay: 0.1s; }
+.review-card:nth-child(3) { animation-delay: 0.2s; }
+
+.tab-pane {
+	animation: fadeIn 0.4s ease;
+}
+
+.modal--open .modal__content {
+	animation: fadeScale 0.3s ease forwards;
+}

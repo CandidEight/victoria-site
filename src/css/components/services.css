@@ -1,0 +1,137 @@
+.services {
+	padding: 100px 0;
+	background: var(--color-bg-secondary);
+}
+
+.services__header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.services__tabs {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.tabs__controls {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 50px;
+}
+
+.tab-btn {
+	padding: 10px 28px;
+	background: transparent;
+	border: none;
+	font-family: inherit;
+	font-size: 0.95rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--transition);
+	color: var(--color-text-secondary);
+	position: relative;
+}
+
+.tab-btn::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 2px;
+	background: var(--color-accent);
+	transition: width 0.3s ease;
+}
+
+.tab-btn:hover::after,
+.tab-btn--active::after {
+	width: 30px;
+}
+
+.tab-btn--active {
+	color: var(--color-text-primary);
+	font-weight: 600;
+}
+
+.tab-pane {
+	display: none;
+}
+
+.tab-pane--active {
+	display: block;
+}
+
+.services__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 32px;
+}
+
+.service-card {
+	background: var(--color-bg-card);
+	padding: 32px 28px;
+	border-radius: var(--radius-lg);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+	transition: all 0.3s ease;
+	border: 0.5px solid var(--color-border-light);
+}
+
+.service-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+	border-color: transparent;
+}
+
+.service-card__icon {
+	width: 56px;
+	height: 56px;
+	margin-bottom: 28px;
+	background: var(--color-bg-secondary);
+	border-radius: var(--radius-md);
+	transition: var(--transition);
+}
+
+.service-card:hover .service-card__icon {
+	background: var(--color-accent-light);
+}
+
+.service-card__title {
+	font-size: 1.3rem;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	margin-bottom: 12px;
+	color: var(--color-text-primary);
+}
+
+.service-card__desc {
+	color: var(--color-text-secondary);
+	margin-bottom: 20px;
+	line-height: 1.6;
+	font-size: 0.9rem;
+}
+
+.service-card__price {
+	font-weight: 600;
+	color: var(--color-accent);
+	font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+	.services {
+		padding: 60px 0;
+	}
+
+	.tabs__controls {
+		gap: 24px;
+	}
+
+	.tab-btn {
+		padding: 8px 20px;
+	}
+
+	.services__grid {
+		gap: 24px;
+	}
+}

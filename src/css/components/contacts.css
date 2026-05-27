@@ -1,0 +1,153 @@
+.contact {
+	padding: 100px 0;
+	background: var(--color-bg-secondary);
+}
+
+.contact__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 70px;
+	align-items: start;
+}
+
+.contact__details {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-top: 32px;
+}
+
+.contact__detail {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--color-border-light);
+	transition: var(--transition);
+}
+
+.contact__detail:hover {
+	transform: translateX(4px);
+}
+
+.contact__detail-icon {
+	width: 44px;
+	height: 44px;
+	background: var(--color-bg-primary);
+	border-radius: 12px;
+	transition: var(--transition);
+}
+
+.contact__detail:hover .contact__detail-icon {
+	background: var(--color-accent-light);
+}
+
+.contact__detail-label {
+	font-size: 0.7rem;
+	color: var(--color-text-tertiary);
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	margin-bottom: 4px;
+}
+
+.contact__detail-value {
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	transition: var(--transition);
+}
+
+.contact__detail-value:hover {
+	color: var(--color-accent);
+}
+
+.form {
+	background: var(--color-bg-card);
+	padding: 44px 40px;
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow-md);
+	border: 1px solid var(--color-border-light);
+}
+
+.form__group {
+	position: relative;
+	margin-bottom: 32px;
+}
+
+.form__input, .form__textarea {
+	width: 100%;
+	padding: 14px 0 8px;
+	border: none;
+	border-bottom: 1px solid var(--color-border);
+	background: transparent;
+	font-family: inherit;
+	font-size: 0.95rem;
+	color: var(--color-text-primary);
+	transition: var(--transition);
+	outline: none;
+}
+
+.form__input:focus, .form__textarea:focus {
+	border-bottom-color: var(--color-accent);
+}
+
+.form__label {
+	position: absolute;
+	left: 0;
+	top: 14px;
+	color: var(--color-text-tertiary);
+	transition: var(--transition);
+	pointer-events: none;
+	font-size: 0.95rem;
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown) ~ .form__label,
+.form__textarea:focus ~ .form__label,
+.form__textarea:not(:placeholder-shown) ~ .form__label {
+	top: -10px;
+	font-size: 0.7rem;
+	color: var(--color-accent);
+}
+
+.form__textarea {
+	resize: vertical;
+	min-height: 80px;
+}
+
+.form__privacy {
+	font-size: 0.7rem;
+	color: var(--color-text-tertiary);
+	text-align: center;
+	margin-top: 20px;
+}
+
+.form__status {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 0.85rem;
+}
+
+.form__status--success {
+	color: var(--color-accent);
+}
+
+.form__status--warning {
+	color: #e8a598;
+}
+
+@media (max-width: 768px) {
+	.contact {
+		padding: 60px 0;
+	}
+
+	.contact__grid {
+		grid-template-columns: 1fr;
+		gap: 48px;
+	}
+
+	.form {
+		padding: 32px 28px;
+	}
+}
