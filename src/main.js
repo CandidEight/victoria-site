@@ -1,6 +1,10 @@
 import './css/main.css'
 
+console.log('main.js загружен')
+
 document.addEventListener('DOMContentLoaded', () => {
+
+	console.log('DOMContentLoaded сработал')
 
 	const burgerBtn = document.getElementById('burgerBtn')
 	const nav = document.querySelector('.nav')
@@ -49,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	const certificatesGrid = document.getElementById('certificatesGrid')
+	console.log('certificatesGrid найден?', certificatesGrid)
+
 	if (certificatesGrid) {
 		const certificates = [
 			{ title: 'Диплом МПГУ', description: 'Факультет дошкольной педагогики и психологии', year: '2015' },
@@ -66,12 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
 				<p class="certificate-card__desc">${cert.description}</p>
 			</div>
 		`).join('')
+
+		console.log('Сертификатов вставлено:', document.querySelectorAll('.certificate-card').length)
+	} else {
+		console.error('certificatesGrid НЕ НАЙДЕН в DOM')
 	}
 
 	const reviewsTrack = document.getElementById('reviewsTrack')
 	const reviewsDots = document.getElementById('reviewsDots')
 	let currentReview = 0
 	let reviews = []
+
+	console.log('reviewsTrack найден?', reviewsTrack)
+	console.log('reviewsDots найден?', reviewsDots)
 
 	if (reviewsTrack && reviewsDots) {
 		reviews = [
@@ -98,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}).join('')
 
 		reviewsDots.innerHTML = reviews.map((_, i) => `<div class="reviews__dot ${i === 0 ? 'reviews__dot--active' : ''}" data-review="${i}"></div>`).join('')
+
+		console.log('Отзывов вставлено:', document.querySelectorAll('.review-card').length)
 
 		const updateReviewSlider = () => {
 			if (reviewsTrack) {
@@ -133,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 
 		updateReviewSlider()
+	} else {
+		console.error('reviewsTrack или reviewsDots НЕ НАЙДЕНЫ в DOM')
 	}
 
 	const imageWrapper = document.querySelector('.reviews__image-wrapper')
@@ -226,4 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			submitBtn.disabled = false
 		})
 	}
+
+	console.log('DOMContentLoaded отработал полностью')
 })
