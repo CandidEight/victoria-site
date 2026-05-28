@@ -1,11 +1,22 @@
 .certificates {
-	padding: 100px 0;
-	background: linear-gradient(145deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+	padding: 80px 0;
+	background: var(--color-bg-secondary);
+	position: relative;
+}
+
+.certificates::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 }
 
 .certificates__header {
 	text-align: center;
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 }
 
 .certificates__header p {
@@ -14,54 +25,96 @@
 }
 
 .certificates__grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	gap: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	position: relative;
+	min-height: 400px;
 }
 
 .certificate-card {
+	position: relative;
+	width: 220px;
 	background: var(--color-bg-card);
-	padding: 28px 24px;
-	border-radius: var(--radius-lg);
-	box-shadow: var(--shadow-sm);
+	padding: 20px 18px;
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
 	transition: var(--transition);
-	border: 1px solid var(--color-border-light);
+	cursor: pointer;
+	z-index: 1;
+}
+
+.certificate-card:nth-child(1) {
+	transform: rotate(-3deg) translateY(10px);
+	background: #FDF8E7;
+}
+
+.certificate-card:nth-child(2) {
+	transform: rotate(2deg) translateY(-5px) translateX(-10px);
+	background: #E8F1F0;
+}
+
+.certificate-card:nth-child(3) {
+	transform: rotate(-1deg) translateY(15px) translateX(10px);
+	background: #F2E6DF;
+}
+
+.certificate-card:nth-child(4) {
+	transform: rotate(4deg) translateY(0px) translateX(-5px);
+	background: #E8F1F0;
+}
+
+.certificate-card:nth-child(5) {
+	transform: rotate(-2deg) translateY(20px) translateX(15px);
+	background: #FDF8E7;
+}
+
+.certificate-card:nth-child(6) {
+	transform: rotate(1deg) translateY(5px) translateX(-15px);
+	background: #F2E6DF;
 }
 
 .certificate-card:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--shadow-md);
-	border-color: var(--color-accent-light);
+	transform: rotate(0deg) translateY(-10px) scale(1.02);
+	z-index: 10;
+	box-shadow: var(--shadow-xl);
 }
 
 .certificate-card__year {
 	font-size: 0.7rem;
-	color: var(--color-accent);
-	font-weight: 500;
-	margin-bottom: 16px;
+	color: var(--color-primary);
+	font-weight: 600;
+	margin-bottom: 10px;
 	letter-spacing: 1px;
-	text-transform: uppercase;
 }
 
 .certificate-card__title {
-	font-size: 1.1rem;
+	font-size: 0.9rem;
 	font-weight: 600;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 	color: var(--color-text-primary);
 }
 
 .certificate-card__desc {
 	color: var(--color-text-secondary);
-	font-size: 0.85rem;
-	line-height: 1.5;
+	font-size: 0.75rem;
+	line-height: 1.4;
 }
 
 @media (max-width: 768px) {
 	.certificates {
-		padding: 60px 0;
+		padding: 50px 0;
 	}
 
 	.certificates__grid {
-		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+	}
+
+	.certificate-card {
+		width: 260px;
+		transform: rotate(0deg) !important;
 	}
 }

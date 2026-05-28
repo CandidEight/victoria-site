@@ -1,6 +1,7 @@
 import './css/main.css'
 
 document.addEventListener('DOMContentLoaded', () => {
+
 	const burgerBtn = document.getElementById('burgerBtn')
 	const nav = document.querySelector('.nav')
 
@@ -20,36 +21,42 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
-	const tabBtns = document.querySelectorAll('.tab-btn')
-	const tabPanes = document.querySelectorAll('.tab-pane')
+	const modal = document.getElementById('modal')
+	const openModalBtns = [document.getElementById('openModalBtn'), document.getElementById('heroModalBtn')]
+	const closeModalBtn = document.getElementById('closeModalBtn')
 
-	if (tabBtns.length) {
-		tabBtns.forEach(btn => {
-			btn.addEventListener('click', () => {
-				const tabId = btn.dataset.tab
+	if (modal && openModalBtns[0]) {
+		openModalBtns.forEach(btn => {
+			if (btn) {
+				btn.addEventListener('click', () => {
+					modal.classList.add('modal--open')
+					document.body.style.overflow = 'hidden'
+				})
+			}
+		})
 
-				tabBtns.forEach(b => b.classList.remove('tab-btn--active'))
-				tabPanes.forEach(pane => pane.classList.remove('tab-pane--active'))
+		const closeModal = () => {
+			modal.classList.remove('modal--open')
+			document.body.style.overflow = ''
+		}
 
-				btn.classList.add('tab-btn--active')
+		if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal)
+		modal.querySelector('.modal__overlay')?.addEventListener('click', closeModal)
 
-				const activePane = document.querySelector(`.tab-pane[data-tab-content="${tabId}"]`)
-				if (activePane) {
-					activePane.classList.add('tab-pane--active')
-				}
-			})
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && modal.classList.contains('modal--open')) closeModal()
 		})
 	}
 
 	const certificatesGrid = document.getElementById('certificatesGrid')
 	if (certificatesGrid) {
 		const certificates = [
-			{ title: 'Диплом о высшем образовании', description: 'МПГУ, факультет дошкольной педагогики и психологии', year: '2012' },
-			{ title: 'Повышение квалификации', description: 'Современные методики раннего развития детей 2-3 лет', year: '2020' },
-			{ title: 'Курс "Монтессори-педагогика"', description: 'Международный институт Монтессори-педагогики', year: '2021' },
-			{ title: 'Логопедические методики', description: 'Запуск речи у неговорящих детей', year: '2022' },
-			{ title: 'Детская психология', description: 'Психологическое консультирование родителей дошкольников', year: '2023' },
-			{ title: 'Нейропсихология', description: 'Нейропсихологический подход в развитии детей', year: '2024' }
+			{ title: 'Диплом МПГУ', description: 'Факультет дошкольной педагогики и психологии', year: '2015' },
+			{ title: 'Авторская методика', description: 'Курс повышения квалификации по раннему развитию', year: '2019' },
+			{ title: 'Монтессори-педагогика', description: 'Международный институт Монтессори', year: '2021' },
+			{ title: 'Нейропсихология', description: 'Нейропсихологический подход в развитии детей', year: '2022' },
+			{ title: 'Эмоциональный интеллект', description: 'Психологическое консультирование', year: '2023' },
+			{ title: 'Скорочтение', description: 'Современные методики чтения для дошкольников', year: '2024' }
 		]
 
 		certificatesGrid.innerHTML = certificates.map(cert => `
@@ -61,52 +68,65 @@ document.addEventListener('DOMContentLoaded', () => {
 		`).join('')
 	}
 
-	const reviewsGrid = document.getElementById('reviewsGrid')
-	if (reviewsGrid) {
-		const reviews = [
-			{ name: 'Екатерина', child: 'Мама Артема, 5 лет', text: 'Виктория Сергеевна занимается с сыном уже полгода. Ребенок с нетерпением ждет каждого занятия! Стал лучше читать и считать. Очень внимательный и профессиональный педагог.' },
-			{ name: 'Анна', child: 'Мама Софии, 4 года', text: 'Огромное спасибо Виктории Сергеевне за индивидуальный подход. Дочь очень стеснительная, но педагог нашла к ней подход. Результаты уже через месяц занятий!' },
-			{ name: 'Мария', child: 'Мама Димы, 6 лет', text: 'Готовились к школе с Викторией Сергеевной. Ребенок поступил в гимназию, легко прошел тестирование. Очень рекомендую!' }
+	const reviewsTrack = document.getElementById('reviewsTrack')
+	const reviewsDots = document.getElementById('reviewsDots')
+	let currentReview = 0
+	let reviews = []
+
+	if (reviewsTrack && reviewsDots) {
+		reviews = [
+			{ name: 'Екатерина', child: 'мама Артема, 6 лет', text: 'Виктория Сергеевна — настоящий профессионал с большой душой. Сын ходил на занятия с удовольствием, ждал каждую встречу. Результат — поступление в сильную школу и главное — любовь к учебе!', rating: 5 },
+			{ name: 'Анна', child: 'мама Софии, 5 лет', text: 'Дочь была очень стеснительной, боялась отвечать. Виктория Сергеевна нашла подход, и через месяц София сама тянула руку и просила дополнительные задания. Огромное спасибо за чуткость и профессионализм.', rating: 5 },
+			{ name: 'Мария', child: 'мама Димы, 7 лет', text: 'Готовились к школе полгода. Результат превзошел ожидания — сын не только научился читать и считать, но и стал увереннее в себе. Виктория Сергеевна стала для него настоящим наставником.', rating: 5 }
 		]
 
-		reviewsGrid.innerHTML = reviews.map(review => `
+		reviewsTrack.innerHTML = reviews.map(review => `
 			<div class="review-card">
 				<div class="review-card__header">
 					<div class="review-card__name">${review.name}</div>
 					<div class="review-card__child">${review.child}</div>
 				</div>
 				<p class="review-card__text">${review.text}</p>
-				<div class="review-card__rating">★★★★★</div>
+				<div class="review-card__rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
 			</div>
 		`).join('')
-	}
 
-	const modal = document.getElementById('modal')
-	const openModalBtn = document.getElementById('openModalBtn')
-	const closeModalBtn = document.getElementById('closeModalBtn')
+		reviewsDots.innerHTML = reviews.map((_, i) => `<div class="reviews__dot ${i === 0 ? 'reviews__dot--active' : ''}" data-review="${i}"></div>`).join('')
 
-	if (modal && openModalBtn) {
-		openModalBtn.addEventListener('click', () => {
-			modal.classList.add('modal--open')
-			document.body.style.overflow = 'hidden'
-		})
-
-		const closeModal = () => {
-			modal.classList.remove('modal--open')
-			document.body.style.overflow = ''
-		}
-
-		if (closeModalBtn) {
-			closeModalBtn.addEventListener('click', closeModal)
-		}
-
-		modal.querySelector('.modal__overlay')?.addEventListener('click', closeModal)
-
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
-				closeModal()
+		const updateReviewSlider = () => {
+			if (reviewsTrack) {
+				reviewsTrack.style.transform = `translateX(-${currentReview * 100}%)`
 			}
+			document.querySelectorAll('.reviews__dot').forEach((dot, i) => {
+				dot.classList.toggle('reviews__dot--active', i === currentReview)
+			})
+		}
+
+		const prevBtn = document.getElementById('prevReview')
+		const nextBtn = document.getElementById('nextReview')
+
+		if (prevBtn) {
+			prevBtn.addEventListener('click', () => {
+				currentReview = (currentReview - 1 + reviews.length) % reviews.length
+				updateReviewSlider()
+			})
+		}
+
+		if (nextBtn) {
+			nextBtn.addEventListener('click', () => {
+				currentReview = (currentReview + 1) % reviews.length
+				updateReviewSlider()
+			})
+		}
+
+		document.querySelectorAll('.reviews__dot').forEach(dot => {
+			dot.addEventListener('click', (e) => {
+				currentReview = parseInt(e.target.dataset.review)
+				updateReviewSlider()
+			})
 		})
+
+		updateReviewSlider()
 	}
 
 	const contactForm = document.getElementById('contactForm')
@@ -115,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const sendForm = async (data) => {
 		console.log('Форма отправлена:', data)
-		alert(`Заявка от ${data.name}, телефон: ${data.phone}. В демо-режиме заявка не отправлена. Для реальной отправки настрой Telegram бота.`)
+		alert(`Заявка от ${data.name}, телефон: ${data.phone}. Скоро свяжусь!`)
 		return { success: true }
 	}
 
@@ -129,16 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			submitBtn.disabled = true
 
 			const formData = {
-				name: document.getElementById('name').value,
-				phone: document.getElementById('phone').value,
-				email: document.getElementById('email').value,
-				message: document.getElementById('message').value
+				name: document.getElementById('name')?.value || '',
+				phone: document.getElementById('phone')?.value || '',
+				childAge: document.getElementById('childAge')?.value || '',
+				message: 'Заявка с сайта'
 			}
 
 			await sendForm(formData)
 
 			if (formStatus) {
-				formStatus.textContent = '✅ Заявка отправлена! Я свяжусь с вами в ближайшее время.'
+				formStatus.textContent = 'Заявка отправлена! Я свяжусь с вами в ближайшее время.'
 				formStatus.className = 'form__status form__status--success'
 			}
 
@@ -169,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			submitBtn.disabled = true
 
 			const formData = {
-				name: document.getElementById('modalName').value,
-				phone: document.getElementById('modalPhone').value,
-				childAge: document.getElementById('modalChildAge').value,
+				name: document.getElementById('modalName')?.value || '',
+				phone: document.getElementById('modalPhone')?.value || '',
+				childAge: document.getElementById('modalChildAge')?.value || '',
 				message: 'Заявка через модальное окно'
 			}
 

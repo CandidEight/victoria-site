@@ -31,7 +31,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background: var(--color-bg-card);
-	padding: 44px;
+	padding: 48px;
 	border-radius: var(--radius-xl);
 	max-width: 500px;
 	width: 90%;
@@ -47,8 +47,8 @@
 	right: 24px;
 	background: var(--color-bg-secondary);
 	border: none;
-	width: 32px;
-	height: 32px;
+	width: 34px;
+	height: 34px;
 	border-radius: 50%;
 	font-size: 1.2rem;
 	cursor: pointer;
@@ -60,22 +60,24 @@
 }
 
 .modal__close:hover {
-	background: var(--color-accent);
+	background: var(--color-accent-terracotta);
 	color: white;
+	transform: rotate(90deg);
 }
 
 .modal__title {
 	font-size: 1.6rem;
-	font-weight: 600;
+	font-weight: 500;
 	letter-spacing: -0.02em;
-	margin-bottom: 28px;
+	margin-bottom: 32px;
 	text-align: center;
 	color: var(--color-text-primary);
+	font-family: 'Playfair Display', serif;
 }
 
 @media (max-width: 480px) {
 	.modal__content {
-		padding: 32px 28px;
+		padding: 32px 24px;
 	}
 
 	.modal__title {

@@ -1,0 +1,415 @@
+/* 1024px - Планшеты и маленькие ноутбуки */
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 20px;
+	}
+
+	.header__inner {
+		gap: 20px;
+	}
+
+	.nav {
+		gap: 24px;
+	}
+
+	.nav__link {
+		font-size: 0.8rem;
+	}
+
+	.hero__grid {
+		gap: 40px;
+	}
+
+	.hero__stats {
+		gap: 30px;
+	}
+
+	.hero__stat-number {
+		font-size: 1.5rem;
+	}
+
+	.about__grid {
+		gap: 40px;
+	}
+
+	.method__grid {
+		gap: 24px;
+	}
+
+	.method__card {
+		padding: 30px 20px;
+	}
+
+	.services__grid {
+		gap: 24px;
+	}
+
+	.service-card {
+		padding: 28px 20px;
+	}
+
+	.contact__grid {
+		gap: 40px;
+	}
+}
+
+/* 860px - Бургер появляется, перестраиваем сетки */
+@media (max-width: 860px) {
+	/* Хедер и навигация */
+	.nav {
+		position: fixed;
+		top: 70px;
+		left: -100%;
+		right: 0;
+		background: var(--color-bg-primary);
+		flex-direction: column;
+		padding: 40px 20px;
+		gap: 28px;
+		transition: left 0.3s ease;
+		box-shadow: var(--shadow-md);
+		border-bottom: 1px solid var(--color-border-light);
+		z-index: 999;
+	}
+
+	.nav--active {
+		left: 0;
+	}
+
+	.burger {
+		display: flex;
+	}
+
+	.btn--small {
+		display: none;
+	}
+
+	/* Hero секция */
+	.hero__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.hero__content {
+		top: 0;
+		text-align: center;
+	}
+
+	.hero__badge {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hero__subtitle {
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hero__stats {
+		justify-content: center;
+	}
+
+	.hero__stats::before {
+		height: 18px;
+		bottom: 6px;
+	}
+
+	.hero__sun {
+		width: 200px;
+		height: 200px;
+		left: -50px;
+		top: 50px;
+		opacity: 0.2;
+	}
+
+	/* About секция */
+	.about__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.about__content {
+		max-width: 100%;
+		text-align: center;
+	}
+
+	.about__signature {
+		justify-content: center;
+	}
+
+	/* Method секция */
+	.method__grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.method__card {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	/* Services секция */
+	.services__grid {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+
+	.service-card {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.service-card:nth-child(2) {
+		transform: scale(1);
+	}
+
+	/* Certificates секция */
+	.certificates__grid {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.certificate-card {
+		width: 280px;
+		transform: rotate(0deg) !important;
+	}
+
+	/* Reviews секция */
+	.reviews__nav--prev {
+		left: 10px;
+	}
+
+	.reviews__nav--next {
+		right: 10px;
+	}
+
+	.reviews__nav {
+		width: 36px;
+		height: 36px;
+	}
+
+	.review-card {
+		padding: 32px 24px;
+	}
+
+	/* Contact секция */
+	.contact__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.contact__info {
+		text-align: center;
+	}
+
+	.contact__details {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.form {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	/* Footer */
+	.footer__inner {
+		flex-direction: column;
+		text-align: center;
+		gap: 16px;
+	}
+}
+
+/* 768px - Планшеты портретные */
+@media (max-width: 768px) {
+	.about__content .section-title {
+		font-size: 2rem;
+	}
+
+	.about__text p:first-of-type::first-letter {
+		font-size: 2.5rem;
+	}
+}
+
+/* 480px - Мобильные телефоны */
+@media (max-width: 480px) {
+	/* Общие */
+	.container {
+		padding: 0 16px;
+	}
+
+	.section-title {
+		font-size: 1.8rem;
+	}
+
+	/* Header */
+	.header {
+		padding: 12px 0;
+	}
+
+	.logo__text {
+		font-size: 1rem;
+	}
+
+	.logo__sub {
+		font-size: 0.55rem;
+	}
+
+	.logo::before {
+		font-size: 18px;
+		left: -8px;
+		top: -3px;
+	}
+
+	/* Hero */
+	.hero {
+		padding: 100px 0 40px;
+	}
+
+	.hero__stats {
+		flex-direction: column;
+		gap: 16px;
+		align-items: center;
+	}
+
+	.hero__stats::before {
+		display: none;
+	}
+
+	.hero__stat-number {
+		font-size: 1.8rem;
+	}
+
+	.hero__title {
+		font-size: 2rem;
+	}
+
+	.hero__subtitle {
+		font-size: 0.9rem;
+	}
+
+	.hero__sun {
+		width: 150px;
+		height: 150px;
+		left: -40px;
+		top: 80px;
+		opacity: 0.15;
+	}
+
+	/* About */
+	.about {
+		padding: 40px 0;
+	}
+
+	.about__text p {
+		font-size: 0.9rem;
+	}
+
+	.about__signature-text {
+		font-size: 1rem;
+	}
+
+	/* Method */
+	.method {
+		padding: 40px 0;
+	}
+
+	.method__card-title {
+		font-size: 1.2rem;
+	}
+
+	.method__card-desc {
+		font-size: 0.85rem;
+	}
+
+	/* Services */
+	.services {
+		padding: 40px 0;
+	}
+
+	.service-card__title {
+		font-size: 1.1rem;
+	}
+
+	/* Certificates */
+	.certificates {
+		padding: 40px 0;
+	}
+
+	.certificate-card {
+		width: 260px;
+		padding: 16px 14px;
+	}
+
+	/* Reviews */
+	.reviews {
+		padding: 40px 0;
+	}
+
+	.review-card {
+		padding: 24px 20px;
+	}
+
+	.review-card::before {
+		font-size: 2.5rem;
+		top: 12px;
+		left: 16px;
+	}
+
+	.review-card__header {
+		padding-left: 30px;
+	}
+
+	.review-card__text {
+		font-size: 0.85rem;
+	}
+
+	/* Contact */
+	.contact {
+		padding: 40px 0;
+	}
+
+	.form {
+		padding: 28px 24px;
+	}
+
+	.contact__detail {
+		padding: 14px 18px;
+	}
+
+	/* Footer */
+	.footer {
+		padding: 32px 0;
+	}
+
+	.footer__copyright {
+		font-size: 0.7rem;
+	}
+
+	.footer__drawing {
+		width: 100px;
+		height: 100px;
+		bottom: -10px;
+		right: -10px;
+	}
+}
+
+/* 375px - Маленькие телефоны */
+@media (max-width: 375px) {
+	.hero__title {
+		font-size: 1.8rem;
+	}
+
+	.hero__stat-number {
+		font-size: 1.5rem;
+	}
+
+	.section-title {
+		font-size: 1.6rem;
+	}
+
+	.certificate-card {
+		width: 240px;
+	}
+}
