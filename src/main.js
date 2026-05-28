@@ -80,16 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
 			{ name: 'Мария', child: 'мама Димы, 7 лет', text: 'Готовились к школе полгода. Результат превзошел ожидания — сын не только научился читать и считать, но и стал увереннее в себе. Виктория Сергеевна стала для него настоящим наставником.', rating: 5 }
 		]
 
-		reviewsTrack.innerHTML = reviews.map(review => `
-			<div class="review-card">
-				<div class="review-card__header">
-					<div class="review-card__name">${review.name}</div>
-					<div class="review-card__child">${review.child}</div>
+		reviewsTrack.innerHTML = reviews.map((review, index) => {
+			const initials = review.name.charAt(0)
+			return `
+				<div class="review-card">
+					<div class="review-card__rating">${'★'.repeat(review.rating)}</div>
+					<div class="review-card__text">${review.text}</div>
+					<div class="review-card__author">
+						<div class="review-card__author-avatar">${initials}</div>
+						<div class="review-card__author-info">
+							<div class="review-card__author-name">${review.name}</div>
+							<div class="review-card__author-child">${review.child}</div>
+						</div>
+					</div>
 				</div>
-				<p class="review-card__text">${review.text}</p>
-				<div class="review-card__rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-			</div>
-		`).join('')
+			`
+		}).join('')
 
 		reviewsDots.innerHTML = reviews.map((_, i) => `<div class="reviews__dot ${i === 0 ? 'reviews__dot--active' : ''}" data-review="${i}"></div>`).join('')
 
@@ -127,6 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 
 		updateReviewSlider()
+	}
+
+	const imageWrapper = document.querySelector('.reviews__image-wrapper')
+	if (imageWrapper) {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					imageWrapper.classList.add('reveal')
+					observer.unobserve(imageWrapper)
+				}
+			})
+		}, { threshold: 0.3 })
+		observer.observe(imageWrapper)
 	}
 
 	const contactForm = document.getElementById('contactForm')

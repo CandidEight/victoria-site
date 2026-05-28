@@ -168,16 +168,25 @@
 
 		<section id="reviews" class="reviews">
 			<div class="container">
-				<div class="reviews__header">
-					<span class="section-badge">Отзывы</span>
-					<h2 class="section-title">Что говорят <br>родители</h2>
+				<div class="reviews__grid">
+					<div class="reviews__content">
+						<span class="section-badge">Отзывы</span>
+						<h2 class="section-title">Что говорят <br>родители</h2>
+						<div class="reviews__slider">
+							<div class="reviews__track" id="reviewsTrack"></div>
+						</div>
+						<div class="reviews__nav">
+							<button id="prevReview">←</button>
+							<button id="nextReview">→</button>
+						</div>
+						<div class="reviews__dots" id="reviewsDots"></div>
+					</div>
+					<div class="reviews__image">
+						<div class="reviews__image-wrapper">
+							<img src="./public/images/kids.png" alt="Дети">
+						</div>
+					</div>
 				</div>
-				<div class="reviews__slider">
-					<div class="reviews__track" id="reviewsTrack"></div>
-					<button class="reviews__nav reviews__nav--prev" id="prevReview">←</button>
-					<button class="reviews__nav reviews__nav--next" id="nextReview">→</button>
-				</div>
-				<div class="reviews__dots" id="reviewsDots"></div>
 			</div>
 		</section>
 
