@@ -43,36 +43,66 @@
 }
 
 .about__content .section-badge {
-	margin-bottom: 12px;
+	font-family: 'Toyz Regular', sans-serif;
+	font-size: 0.7rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 20px;
+	color: var(--color-primary);
+	position: relative;
+	padding-left: 30px;
+	display: inline-block;
+}
+
+.about__content .section-badge::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 2px;
+	background: var(--color-primary);
 }
 
 .about__content .section-title {
-	font-size: 2.5rem;
+	font-family: 'Toyz Regular', sans-serif;
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 500;
+	letter-spacing: -0.02em;
 	margin-bottom: 24px;
+	color: var(--color-text-primary);
 	line-height: 1.2;
+}
+
+.about__text {
+	font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+	font-size: 1rem;
+	line-height: 1.7;
+	color: var(--color-text-secondary);
+	margin-bottom: 24px;
 }
 
 .about__text p {
 	margin-bottom: 18px;
-	color: var(--color-text-secondary);
-	line-height: 1.7;
-	font-size: 1rem;
 }
 
 .about__text p:first-of-type::first-letter {
-	font-size: 3.5rem;
+	font-size: 4rem;
 	font-weight: 600;
-	font-family: 'Cormorant Garamond', serif;
+	font-family: 'Toyz Regular', sans-serif;
 	color: var(--color-primary);
 	float: left;
 	line-height: 0.8;
-	margin-right: 10px;
-	padding-top: 8px;
+	margin-right: 12px;
+	padding-top: 6px;
 }
 
 .about__text strong {
 	color: var(--color-primary);
 	font-weight: 600;
+	font-family: 'Toyz Regular', sans-serif;
 }
 
 .about__signature {
@@ -88,12 +118,14 @@
 	content: '✧';
 	color: var(--color-primary);
 	font-size: 1.2rem;
+	animation: spinSlow 4s ease-in-out infinite;
+	display: inline-block;
 }
 
 .about__signature-text {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	font-weight: 500;
-	font-family: 'Cormorant Garamond', serif;
+	font-family: 'Toyz Regular', sans-serif;
 	color: var(--color-text-primary);
 	font-style: italic;
 }
@@ -102,6 +134,13 @@
 	font-size: 0.7rem;
 	color: var(--color-text-tertiary);
 	letter-spacing: 1px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes spinSlow {
+	0% { transform: rotate(0deg); }
+	50% { transform: rotate(15deg); }
+	100% { transform: rotate(0deg); }
 }
 
 @media (max-width: 768px) {
@@ -120,5 +159,9 @@
 
 	.about__content .section-title {
 		font-size: 2rem;
+	}
+	
+	.about__text p:first-of-type::first-letter {
+		font-size: 3rem;
 	}
 }
