@@ -15,8 +15,13 @@
 		<div class="container">
 			<div class="header__inner">
 				<div class="logo">
-					<span class="logo__text">Виктория Салеева</span>
-					<span class="logo__sub">Авторская методика развития</span>
+					<div class="logo__icon">
+						<img src="./images/logo.svg" alt="Логотип">
+					</div>
+					<div>
+						<span class="logo__text">Виктория Салеева</span>
+						<span class="logo__sub">Авторская методика развития</span>
+					</div>
 				</div>
 				<nav class="nav">
 					<a href="#about" class="nav__link">Обо мне</a>
@@ -70,8 +75,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="hero__floating hero__floating-1"></div>
-			<div class="hero__floating hero__floating-2"></div>
 		</section>
 
 		<section id="about" class="about">
@@ -171,15 +174,32 @@
 				<div class="reviews__grid">
 					<div class="reviews__content">
 						<span class="section-badge">Отзывы</span>
-						<h2 class="section-title">Что говорят <br>родители</h2>
-						<div class="reviews__slider">
-							<div class="reviews__track" id="reviewsTrack"></div>
+						<h2 class="section-title">Честные <br>слова родителей</h2>
+						<p class="reviews__subtitle">Реальные мнения из соцсетей и мессенджеров.</p>
+						
+						<div class="reviews__links">
+							<a href="https://vk.com/reviews-239185991" class="review-link" id="reviewVk" target="_blank" rel="noopener noreferrer">
+								<div class="review-link__icon review-link__icon--vk">
+									<img src="./images/vk.svg" alt="VK">
+								</div>
+								<div class="review-link__info">
+									<div class="review-link__title">ОТЗЫВЫ VK</div>
+									<div class="review-link__desc">4.9 ★ (12 отзывов)</div>
+								</div>
+								<div class="review-link__arrow">→</div>
+							</a>
+
+							<a href="#" class="review-link" id="reviewMax" target="_blank" rel="noopener noreferrer">
+								<div class="review-link__icon review-link__icon--max">
+									<img src="./images/max.svg" alt="MAX">
+								</div>
+								<div class="review-link__info">
+									<div class="review-link__title">ОТЗЫВЫ MAX</div>
+									<div class="review-link__desc">Читайте отзывы в MAX</div>
+								</div>
+								<div class="review-link__arrow">→</div>
+							</a>
 						</div>
-						<div class="reviews__nav">
-							<button id="prevReview">←</button>
-							<button id="nextReview">→</button>
-						</div>
-						<div class="reviews__dots" id="reviewsDots"></div>
 					</div>
 					<div class="reviews__image">
 						<div class="reviews__image-wrapper">
@@ -250,7 +270,8 @@
 			<div class="footer__inner">
 				<div class="footer__copyright">© 2025 Виктория Салеева — авторская методика развития</div>
 				<div class="footer__social">
-					<a href="#" class="footer__social-link">WhatsApp</a>
+					<a href="#" class="footer__social-link">VK</a>
+					<a href="#" class="footer__social-link">MAX</a>
 					<a href="#" class="footer__social-link">Telegram</a>
 					<a href="#" class="footer__social-link">Instagram</a>
 				</div>
@@ -270,7 +291,7 @@
 					<label for="modalName" class="form__label">Ваше имя</label>
 				</div>
 				<div class="form__group">
-					<input type="tel" id="modalPhone" class="form__input" placeholder=" " required>
+					<input type="tel" id="modalPhone" class="form__input" placeholder=" " required pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" maxlength="18">
 					<label for="modalPhone" class="form__label">Телефон</label>
 				</div>
 				<div class="form__group">

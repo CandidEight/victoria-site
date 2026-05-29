@@ -107,19 +107,37 @@
 
 .about__signature {
 	margin-top: 32px;
-	padding-top: 20px;
-	border-top: 2px solid var(--color-border);
 	display: flex;
 	align-items: center;
 	gap: 16px;
+	position: relative;
 }
 
-.about__signature::before {
-	content: '✧';
-	color: var(--color-primary);
-	font-size: 1.2rem;
-	animation: spinSlow 4s ease-in-out infinite;
-	display: inline-block;
+.about__signature::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	right: 0;
+	height: 40px;
+	width: 0;
+	background: rgba(245, 210, 210, 0.7);
+	z-index: -1;
+	border-radius: 60% 40% 70% 30% / 30% 55% 45% 70%;
+	transform: rotate(-0.8deg);
+	animation: markerDrawRight 0.8s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+@keyframes markerDrawRight {
+	0% {
+		width: 0;
+		opacity: 0;
+	}
+	100% {
+		width: calc(100% + 80px);
+		right: -40px;
+		opacity: 1;
+	}
 }
 
 .about__signature-text {
@@ -128,19 +146,17 @@
 	font-family: 'Toyz Regular', sans-serif;
 	color: var(--color-text-primary);
 	font-style: italic;
+	position: relative;
+	z-index: 1;
 }
 
 .about__signature-sub {
 	font-size: 0.7rem;
 	color: var(--color-text-tertiary);
 	letter-spacing: 1px;
-	font-family: 'Montserrat', sans-serif;
-}
-
-@keyframes spinSlow {
-	0% { transform: rotate(0deg); }
-	50% { transform: rotate(15deg); }
-	100% { transform: rotate(0deg); }
+	font-family: 'Comic', sans-serif;
+	position: relative;
+	z-index: 1;
 }
 
 @media (max-width: 768px) {

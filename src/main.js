@@ -78,78 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.error('certificatesGrid НЕ НАЙДЕН в DOM')
 	}
 
-	const reviewsTrack = document.getElementById('reviewsTrack')
-	const reviewsDots = document.getElementById('reviewsDots')
-	let currentReview = 0
-	let reviews = []
+	// Блок отзывов через кнопки VK и MAX (карусель удалена)
+	const reviewVkBtn = document.getElementById('reviewVk')
+	const reviewMaxBtn = document.getElementById('reviewMax')
 
-	console.log('reviewsTrack найден?', reviewsTrack)
-	console.log('reviewsDots найден?', reviewsDots)
-
-	if (reviewsTrack && reviewsDots) {
-		reviews = [
-			{ name: 'Екатерина', child: 'мама Артема, 6 лет', text: 'Виктория Сергеевна — настоящий профессионал с большой душой. Сын ходил на занятия с удовольствием, ждал каждую встречу. Результат — поступление в сильную школу и главное — любовь к учебе!', rating: 5 },
-			{ name: 'Анна', child: 'мама Софии, 5 лет', text: 'Дочь была очень стеснительной, боялась отвечать. Виктория Сергеевна нашла подход, и через месяц София сама тянула руку и просила дополнительные задания. Огромное спасибо за чуткость и профессионализм.', rating: 5 },
-			{ name: 'Мария', child: 'мама Димы, 7 лет', text: 'Готовились к школе полгода. Результат превзошел ожидания — сын не только научился читать и считать, но и стал увереннее в себе. Виктория Сергеевна стала для него настоящим наставником.', rating: 5 }
-		]
-
-		reviewsTrack.innerHTML = reviews.map((review, index) => {
-			const initials = review.name.charAt(0)
-			return `
-				<div class="review-card">
-					<div class="review-card__rating">${'★'.repeat(review.rating)}</div>
-					<div class="review-card__text">${review.text}</div>
-					<div class="review-card__author">
-						<div class="review-card__author-avatar">${initials}</div>
-						<div class="review-card__author-info">
-							<div class="review-card__author-name">${review.name}</div>
-							<div class="review-card__author-child">${review.child}</div>
-						</div>
-					</div>
-				</div>
-			`
-		}).join('')
-
-		reviewsDots.innerHTML = reviews.map((_, i) => `<div class="reviews__dot ${i === 0 ? 'reviews__dot--active' : ''}" data-review="${i}"></div>`).join('')
-
-		console.log('Отзывов вставлено:', document.querySelectorAll('.review-card').length)
-
-		const updateReviewSlider = () => {
-			if (reviewsTrack) {
-				reviewsTrack.style.transform = `translateX(-${currentReview * 100}%)`
-			}
-			document.querySelectorAll('.reviews__dot').forEach((dot, i) => {
-				dot.classList.toggle('reviews__dot--active', i === currentReview)
-			})
-		}
-
-		const prevBtn = document.getElementById('prevReview')
-		const nextBtn = document.getElementById('nextReview')
-
-		if (prevBtn) {
-			prevBtn.addEventListener('click', () => {
-				currentReview = (currentReview - 1 + reviews.length) % reviews.length
-				updateReviewSlider()
-			})
-		}
-
-		if (nextBtn) {
-			nextBtn.addEventListener('click', () => {
-				currentReview = (currentReview + 1) % reviews.length
-				updateReviewSlider()
-			})
-		}
-
-		document.querySelectorAll('.reviews__dot').forEach(dot => {
-			dot.addEventListener('click', (e) => {
-				currentReview = parseInt(e.target.dataset.review)
-				updateReviewSlider()
-			})
+	if (reviewVkBtn) {
+		reviewVkBtn.addEventListener('click', () => {
+			console.log('Переход на отзывы VK')
 		})
+	}
 
-		updateReviewSlider()
-	} else {
-		console.error('reviewsTrack или reviewsDots НЕ НАЙДЕНЫ в DOM')
+	if (reviewMaxBtn) {
+		reviewMaxBtn.addEventListener('click', () => {
+			console.log('Переход в чат MAX')
+		})
 	}
 
 	const imageWrapper = document.querySelector('.reviews__image-wrapper')
@@ -168,6 +110,32 @@ document.addEventListener('DOMContentLoaded', () => {
 	const contactForm = document.getElementById('contactForm')
 	const modalForm = document.getElementById('modalForm')
 	const formStatus = document.getElementById('formStatus')
+
+	const phoneInputs = document.querySelectorAll('input[type="tel"]')
+	phoneInputs.forEach(input => {
+		input.addEventListener('input', (e) => {
+			let value = e.target.value.replace(/\D/g, '')
+			if (value.length > 11) value = value.slice(0, 11)
+			
+			let formatted = ''
+			if (value.length > 0) {
+				if (value[0] === '7' || value[0] === '8') {
+					formatted = '+7'
+					let rest = value.slice(1)
+					if (rest.length > 0) formatted += ' (' + rest.slice(0, 3)
+					if (rest.length > 3) formatted += ') ' + rest.slice(3, 6)
+					if (rest.length > 6) formatted += '-' + rest.slice(6, 8)
+					if (rest.length > 8) formatted += '-' + rest.slice(8, 10)
+				} else {
+					formatted = '+7 (' + value.slice(0, 3)
+					if (value.length > 3) formatted += ') ' + value.slice(3, 6)
+					if (value.length > 6) formatted += '-' + value.slice(6, 8)
+					if (value.length > 8) formatted += '-' + value.slice(8, 10)
+				}
+			}
+			e.target.value = formatted
+		})
+	})
 
 	const sendForm = async (data) => {
 		console.log('Форма отправлена:', data)

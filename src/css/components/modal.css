@@ -7,7 +7,7 @@
 	z-index: 2000;
 	visibility: hidden;
 	opacity: 0;
-	transition: var(--transition);
+	transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
 .modal--open {
@@ -21,66 +21,136 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(8px);
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(6px);
 }
 
 .modal__content {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	background: var(--color-bg-card);
-	padding: 48px;
-	border-radius: var(--radius-xl);
-	max-width: 500px;
+	transform: translate(-50%, -50%) scale(0.95);
+	background: #FFFFFF;
+	padding: 48px 44px;
+	border-radius: 32px;
+	max-width: 480px;
 	width: 90%;
 	max-height: 85vh;
 	overflow-y: auto;
-	box-shadow: var(--shadow-xl);
-	border: 1px solid var(--color-border-light);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+.modal--open .modal__content {
+	transform: translate(-50%, -50%) scale(1);
 }
 
 .modal__close {
 	position: absolute;
 	top: 20px;
 	right: 24px;
-	background: var(--color-bg-secondary);
+	background: #F0F0F0;
 	border: none;
-	width: 34px;
-	height: 34px;
+	width: 36px;
+	height: 36px;
 	border-radius: 50%;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	cursor: pointer;
-	color: var(--color-text-tertiary);
-	transition: var(--transition);
+	color: #999;
+	transition: all 0.2s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .modal__close:hover {
-	background: var(--color-accent-terracotta);
-	color: white;
+	background: rgba(245, 210, 210, 0.9);
+	color: #8B6060;
 	transform: rotate(90deg);
 }
 
 .modal__title {
-	font-size: 1.6rem;
-	font-weight: 500;
+	font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+	font-size: 1.8rem;
+	font-weight: 600;
 	letter-spacing: -0.02em;
 	margin-bottom: 32px;
 	text-align: center;
-	color: var(--color-text-primary);
-	font-family: 'Playfair Display', serif;
+	color: #8B6B6B;
+}
+
+.modal .form {
+	background: transparent;
+	padding: 0;
+	box-shadow: none;
+}
+
+.modal .form__group {
+	margin-bottom: 28px;
+}
+
+.modal .form__input,
+.modal .form__textarea {
+	border-bottom: 2px solid #E8E0E0;
+	font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+	font-size: 1rem;
+	padding: 12px 0 8px;
+	background: transparent;
+}
+
+.modal .form__input:focus,
+.modal .form__textarea:focus {
+	border-bottom-color: rgba(245, 210, 210, 0.9);
+}
+
+.modal .form__label {
+	font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+	font-size: 0.9rem;
+	color: #B0A0A0;
+}
+
+.modal .form__input:focus ~ .form__label,
+.modal .form__input:not(:placeholder-shown) ~ .form__label,
+.modal .form__textarea:focus ~ .form__label,
+.modal .form__textarea:not(:placeholder-shown) ~ .form__label {
+	top: -14px;
+	font-size: 0.7rem;
+	color: rgba(245, 210, 210, 0.9);
+}
+
+.modal .btn--primary {
+	background: rgba(245, 210, 210, 0.9);
+	color: #8B6060;
+	font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+	font-weight: 600;
+	padding: 14px 28px;
+	margin-top: 12px;
+	border: none;
+	border-radius: 48px;
+	box-shadow: 0 6px 14px rgba(245, 210, 210, 0.4);
+}
+
+.modal .btn--primary:hover {
+	background: rgba(240, 190, 190, 0.9);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(245, 210, 210, 0.5);
+	color: #7A5050;
+}
+
+.modal .form__privacy {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.65rem;
+	margin-top: 20px;
+	color: #B0A0A0;
 }
 
 @media (max-width: 480px) {
 	.modal__content {
-		padding: 32px 24px;
+		padding: 36px 28px;
+		border-radius: 28px;
 	}
-
+	
 	.modal__title {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 	}
 }
