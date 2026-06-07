@@ -1,5 +1,7 @@
 import './css/main.css'
 
+import { initMethodSnake } from './js/methodSnake.js'
+
 console.log('main.js загружен')
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.error('certificatesGrid НЕ НАЙДЕН в DOM')
 	}
 
-	// Блок отзывов через кнопки VK и MAX (карусель удалена)
 	const reviewVkBtn = document.getElementById('reviewVk')
 	const reviewMaxBtn = document.getElementById('reviewMax')
 
@@ -213,4 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	console.log('DOMContentLoaded отработал полностью')
+
+	initMethodSnake()
 })
