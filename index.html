@@ -103,28 +103,51 @@
 		</section>
 
 		<section id="method" class="method">
-			<div class="container">
+			<div class="method__container">
 				<div class="method__header">
-					<span class="section-badge">Авторская методика</span>
-					<h2 class="section-title">Как рождается <br>любовь к знаниям</h2>
+					<span class="method__badge">Авторская методика</span>
+					<h2 class="method__title">Как рождается <br>любовь к знаниям</h2>
 				</div>
+				
 				<div class="method__grid">
-					<div class="method__card">
-						<div class="method__card-icon"></div>
-						<h3 class="method__card-title">Игра как основа</h3>
-						<p class="method__card-desc">Через игру ребенок учится без напряжения. Мои занятия — это всегда исследование, приключение, открытие.</p>
-					</div>
-					<div class="method__card">
-						<div class="method__card-icon"></div>
-						<h3 class="method__card-title">Темп = ребенку</h3>
-						<p class="method__card-desc">Никакого "догнать программу". Идем так, как нужно именно вашему ребенку — бережно и уверенно.</p>
-					</div>
-					<div class="method__card">
-						<div class="method__card-icon"></div>
-						<h3 class="method__card-title">Эмоциональный интеллект</h3>
-						<p class="method__card-desc">Я учу не только читать и считать. Говорить о чувствах, дружить, справляться с трудностями — это тоже в программе.</p>
-					</div>
-					<canvas id="methodCanvas" class="method__canvas"></canvas>
+					<svg class="method__snake" viewBox="0 0 801.07 590.54" xmlns="http://www.w3.org/2000/svg">
+						<path fill="transparent" 
+								stroke="#2d6a4f" 
+								stroke-width="5"
+								d="M177 5C181.7182 163.6863 486.5211 170.8651 551 70C615.4789 -30.8651 933.0874 78.6659 728 137C522.9126 195.3341 461 207 582 249C703 291 734 400 414 274C94 148 379 388 482 410C585 432 656 411 707 478C758 545 102 410 247 532C392 654 44 545 5 429H5"/>
+					</svg>
+					
+					<article class="method-card method-card--1">
+						<div class="method-card__icon">
+							<img src="./images/strawberry.svg" alt="Клубника">
+						</div>
+						<h3 class="method-card__title">Игра как основа</h3>
+						<p class="method-card__desc">Через игру ребенок учится без напряжения. Мои занятия — это всегда исследование, приключение, открытие.</p>
+					</article>
+					
+					<article class="method-card method-card--2">
+						<div class="method-card__icon">
+							<img src="./images/banana.svg" alt="Банан">
+						</div>
+						<h3 class="method-card__title">Темп = ребенку</h3>
+						<p class="method-card__desc">Никакого "догнать программу". Идем так, как нужно именно вашему ребенку — бережно и уверенно.</p>
+					</article>
+					
+					<article class="method-card method-card--3">
+						<div class="method-card__icon">
+							<img src="./images/watermelon.svg" alt="Арбуз">
+						</div>
+						<h3 class="method-card__title">Индивидуальный подход</h3>
+						<p class="method-card__desc">Каждый ребенок уникален. Я подбираю программу, упражнения и скорость прохождения материала.</p>
+					</article>
+					
+					<article class="method-card method-card--4">
+						<div class="method-card__icon">
+							<img src="./images/orange.svg" alt="Апельсин">
+						</div>
+						<h3 class="method-card__title">Эмоциональный интеллект</h3>
+						<p class="method-card__desc">Я учу не только читать и считать. Говорить о чувствах, дружить, справляться с трудностями.</p>
+					</article>
 				</div>
 			</div>
 		</section>
@@ -304,6 +327,6 @@
 		</div>
 	</div>
 
-	<script type="module" src="./src/main.js"></script>
+	<script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
