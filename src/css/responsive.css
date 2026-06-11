@@ -53,36 +53,7 @@
 	}
 }
 
-/* 860px - Бургер появляется, перестраиваем сетки */
 @media (max-width: 860px) {
-	/* Хедер и навигация */
-	.nav {
-		position: fixed;
-		top: 70px;
-		left: -100%;
-		right: 0;
-		background: var(--color-bg-primary);
-		flex-direction: column;
-		padding: 40px 20px;
-		gap: 28px;
-		transition: left 0.3s ease;
-		box-shadow: var(--shadow-md);
-		border-bottom: 1px solid var(--color-border-light);
-		z-index: 999;
-	}
-
-	.nav--active {
-		left: 0;
-	}
-
-	.burger {
-		display: flex;
-	}
-
-	.btn--small {
-		display: none;
-	}
-
 	/* Hero секция */
 	.hero__grid {
 		grid-template-columns: 1fr;

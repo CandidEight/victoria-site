@@ -1,20 +1,28 @@
 export function initBurger() {
-	const burgerBtn = document.getElementById('burgerBtn')
+	const burger = document.getElementById('burgerBtn')
 	const nav = document.querySelector('.nav')
 
-	if (!burgerBtn || !nav) return
+	if (!burger || !nav) return
 
-	burgerBtn.addEventListener('click', () => {
-		burgerBtn.classList.toggle('burger--active')
+	burger.addEventListener('click', (e) => {
+		e.stopPropagation()
+		burger.classList.toggle('burger--active')
 		nav.classList.toggle('nav--active')
-		document.body.style.overflow = nav.classList.contains('nav--active') ? 'hidden' : ''
 	})
 
 	document.querySelectorAll('.nav__link').forEach(link => {
 		link.addEventListener('click', () => {
-			burgerBtn.classList.remove('burger--active')
+			burger.classList.remove('burger--active')
 			nav.classList.remove('nav--active')
-			document.body.style.overflow = ''
 		})
+	})
+
+	document.addEventListener('click', (e) => {
+		if (nav.classList.contains('nav--active') && 
+		    !nav.contains(e.target) && 
+		    !burger.contains(e.target)) {
+			burger.classList.remove('burger--active')
+			nav.classList.remove('nav--active')
+		}
 	})
 }
