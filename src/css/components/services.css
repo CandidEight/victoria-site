@@ -171,7 +171,7 @@
 }
 
 .service-card__desc {
-	font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+	font-family: 'Comic', sans-serif;
 	font-size: 0.85rem;
 	line-height: 1.6;
 	color: var(--color-text-secondary);
