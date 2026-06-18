@@ -5,6 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Виктория Салеева — авторская методика развития детей</title>
 	<meta name="description" content="Виктория Салеева: 14 лет опыта, авторская методика подготовки к школе. Индивидуальные занятия с детьми дошкольного возраста в Москве.">
+	
+	<!-- OG-теги для соцсетей -->
+	<meta property="og:title" content="Виктория Салеева — авторская методика развития детей">
+	<meta property="og:description" content="Авторская методика подготовки к школе. Индивидуальные занятия с детьми дошкольного возраста в Москве.">
+	<meta property="og:image" content="https://candideight.github.io/victoria-site/images/og-image.jpg">
+	<meta property="og:url" content="https://candideight.github.io/victoria-site/">
+	<meta property="og:type" content="website">
+	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -28,6 +36,7 @@
 					<a href="#method" class="nav__link">Методика</a>
 					<a href="#services" class="nav__link">Занятия</a>
 					<a href="#certificates" class="nav__link">Портфолио</a>
+					<a href="#method-product" class="nav__link">Купить методику</a>
 					<a href="#reviews" class="nav__link">Отзывы</a>
 				</nav>
 				<button class="btn btn--primary btn--small" id="openModalBtn">Записаться</button>
@@ -212,6 +221,67 @@
 			</div>
 		</section>
 
+		<section id="method-product" class="method-product">
+			<div class="container">
+				<div class="method-product__header">
+					<span class="section-badge">Методика</span>
+					<h2 class="section-title">Авторская методика <br>Виктории Салеевой</h2>
+					<p>Готовая программа для занятий с детьми дошкольного возраста</p>
+				</div>
+
+				<div class="method-product__card">
+					<div class="method-product__image">
+						<img src="./images/method-cover.jpg" alt="Авторская методика" loading="lazy">
+						<span class="method-product__image-badge">🔥 Хит</span>
+					</div>
+
+					<div class="method-product__info">
+						<h3 class="method-product__title">Как научить ребенка учиться</h3>
+
+						<div class="method-product__rating">
+							<span class="stars">★★★★★</span>
+							<span class="count">12 отзывов</span>
+						</div>
+
+						<div class="method-product__price-block">
+							<span class="price-current">2 490 ₽</span>
+							<span class="price-old">3 900 ₽</span>
+							<span class="price-discount">-36%</span>
+						</div>
+
+						<p class="method-product__desc">
+							Готовая программа занятий для детей 3-7 лет. Разработана на основе 14-летнего опыта. Игры, упражнения, сценарии — всё, чтобы ребенок полюбил учиться.
+						</p>
+
+						<div class="method-product__specs">
+							<div class="spec">
+								<span class="spec-label">Формат</span>
+								<span class="spec-value">PDF + Видео</span>
+							</div>
+							<div class="spec">
+								<span class="spec-label">Страниц</span>
+								<span class="spec-value">90</span>
+							</div>
+							<div class="spec">
+								<span class="spec-label">Игр и упражнений</span>
+								<span class="spec-value">50+</span>
+							</div>
+							<div class="spec">
+								<span class="spec-label">Видеоуроков</span>
+								<span class="spec-value">5</span>
+							</div>
+						</div>
+
+						<div class="method-product__actions">
+							<button class="btn btn--buy" id="methodBuyBtn">Купить сейчас →</button>
+						</div>
+
+						<div class="method-product__guarantee">🔒 Безопасная оплата. Мгновенный доступ после покупки.</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section id="reviews" class="reviews">
 			<div class="container">
 				<div class="reviews__grid">
@@ -246,7 +316,7 @@
 					</div>
 					<div class="reviews__image">
 						<div class="reviews__image-wrapper">
-							<img src="./images/kids.png" alt="Дети">
+							<img src="./images/kids.png" alt="Дети" loading="lazy">
 						</div>
 					</div>
 				</div>
@@ -299,7 +369,7 @@
 								<label for="childAge" class="form__label">Возраст ребенка</label>
 							</div>
 							<button type="submit" class="btn btn--primary btn--full">Отправить заявку →</button>
-							<div class="form__privacy">Нажимая на кнопку, вы соглашаетесь с обработкой персональных данных</div>
+							<div class="form__privacy">Нажимая на кнопку, вы соглашаетесь с <a href="/politika.html" target="_blank" style="color:var(--color-primary); text-decoration:underline;">обработкой персональных данных</a></div>
 						</form>
 						<div id="formStatus" class="form__status"></div>
 					</div>
@@ -342,10 +412,61 @@
 					<label for="modalChildAge" class="form__label">Возраст ребенка</label>
 				</div>
 				<button type="submit" class="btn btn--primary btn--full">Отправить →</button>
+				<div class="form__privacy">Нажимая на кнопку, вы соглашаетесь с <a href="/politika.html" target="_blank" style="color:var(--color-primary); text-decoration:underline;">обработкой персональных данных</a></div>
+			</form>
+		</div>
+	</div>
+
+	<div class="modal" id="buyModal">
+		<div class="modal__overlay"></div>
+		<div class="modal__content">
+			<button class="modal__close" id="closeBuyModal">×</button>
+			<div class="modal__title">Купить методику</div>
+			<p class="modal__subtitle">Готовая программа занятий для детей 3-7 лет</p>
+			
+			<form id="buyForm" class="form">
+				<div class="form__group">
+					<input type="text" id="buyName" class="form__input" placeholder=" " required>
+					<label for="buyName" class="form__label">Ваше имя</label>
+				</div>
+				<div class="form__group">
+					<input type="tel" id="buyPhone" class="form__input" placeholder=" " required>
+					<label for="buyPhone" class="form__label">Телефон</label>
+				</div>
+				<div class="form__group">
+					<input type="email" id="buyEmail" class="form__input" placeholder=" " required>
+					<label for="buyEmail" class="form__label">Email</label>
+				</div>
+
+				<div class="delivery-options">
+					<label>
+						<input type="radio" name="delivery" value="email" checked>
+						📧 PDF на email
+					</label>
+					<label>
+						<input type="radio" name="delivery" value="pvz">
+						📦 Забрать в ПВЗ
+					</label>
+				</div>
+
+				<div class="payment-summary">
+					<span class="label">К оплате:</span>
+					<span class="price">2 490 ₽</span>
+				</div>
+
+				<button type="submit" class="btn btn--primary btn--full">Оплатить сейчас →</button>
+				<div class="form__privacy">Нажимая на кнопку, вы соглашаетесь с <a href="/politika.html" target="_blank" style="color:var(--color-primary); text-decoration:underline;">обработкой персональных данных</a></div>
 			</form>
 		</div>
 	</div>
 
 	<script type="module" src="./src/js/main.js"></script>
+
+	<button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<polyline points="18 15 12 9 6 15"></polyline>
+		</svg>
+	</button>
+
 </body>
 </html>
