@@ -1,4 +1,3 @@
-import '../css/main.css'
 import { initBurger } from './modules/burger.js'
 import { initModal } from './modules/modal.js'
 import { initCertificates } from './modules/certificates.js'
