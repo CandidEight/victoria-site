@@ -32,17 +32,22 @@
 .logo__icon img {
 	width: 100%;
 	height: auto;
+	display: block;
 }
 
 .logo__text {
 	font-size: 1.2rem;
 	font-weight: 700;
 	color: var(--color-primary);
+	display: block;
+	line-height: 1.2;
 }
 
 .logo__sub {
 	font-size: 0.65rem;
 	color: var(--color-text-tertiary);
+	display: block;
+	margin-top: 2px;
 }
 
 .nav {
@@ -104,7 +109,7 @@
 	background: none;
 	border: none;
 	padding: 0;
-	width: 30px;
+	width: 28px;
 	height: 20px;
 	position: relative;
 	z-index: 1002;
@@ -131,6 +136,7 @@
 }
 .burger--active span:nth-child(2) {
 	opacity: 0;
+	transform: scale(0);
 }
 .burger--active span:nth-child(3) {
 	transform: rotate(-45deg);
@@ -138,8 +144,34 @@
 }
 
 @media (max-width: 860px) {
+	.header__inner {
+		gap: 10px;
+	}
+
 	.burger {
 		display: block;
+		margin-left: 0;
+		margin-right: 0;
+		flex-shrink: 0;
+		position: relative;
+		right: 0;
+	}
+
+	.logo {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2px;
+		flex: 1;
+	}
+
+	.logo__text {
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+
+	.logo__sub {
+		font-size: 0.55rem;
+		margin-top: 0;
 	}
 
 	.nav {
@@ -148,6 +180,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 280px;
+		max-width: 90vw;
 		background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%);
 		flex-direction: column;
 		align-items: center;
@@ -199,11 +232,11 @@
 	}
 
 	.logo__text {
-		font-size: 1rem;
+		font-size: 0.9rem;
 	}
 
 	.logo__sub {
-		font-size: 0.55rem;
+		font-size: 0.5rem;
 	}
 
 	.nav {

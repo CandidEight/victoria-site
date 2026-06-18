@@ -53,6 +53,7 @@
 	}
 }
 
+/* 860px - Бургер появляется, перестраиваем сетки */
 @media (max-width: 860px) {
 	/* Hero секция */
 	.hero__grid {
@@ -110,13 +111,32 @@
 
 	/* Method секция */
 	.method__grid {
-		grid-template-columns: 1fr;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		gap: 20px;
+		min-height: auto;
 	}
 
 	.method__card {
 		max-width: 400px;
+		width: calc(100% - 40px);
 		margin: 0 auto;
+		position: relative !important;
+		top: auto !important;
+		left: auto !important;
+		right: auto !important;
+	}
+
+	.method-card {
+		position: relative !important;
+		width: calc(100% - 40px);
+		max-width: 320px;
+		aspect-ratio: auto;
+		margin: 0 !important;
+		top: auto !important;
+		left: auto !important;
+		right: auto !important;
 	}
 
 	/* Services секция */
@@ -143,7 +163,7 @@
 
 	.certificate-card {
 		width: 280px;
-		transform: rotate(0deg) !important;
+		transform: rotate(0deg);
 	}
 
 	/* Reviews секция */
@@ -225,12 +245,6 @@
 
 	.logo__sub {
 		font-size: 0.55rem;
-	}
-
-	.logo::before {
-		font-size: 18px;
-		left: -8px;
-		top: -3px;
 	}
 
 	/* Hero */
